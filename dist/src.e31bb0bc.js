@@ -123,7 +123,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.modifierPhases = exports.afterWrite = exports.write = exports.beforeWrite = exports.afterMain = exports.main = exports.beforeMain = exports.afterRead = exports.read = exports.beforeRead = exports.placements = exports.variationPlacements = exports.reference = exports.popper = exports.viewport = exports.clippingParents = exports.end = exports.start = exports.basePlacements = exports.auto = exports.left = exports.right = exports.bottom = exports.top = void 0;
+exports.write = exports.viewport = exports.variationPlacements = exports.top = exports.start = exports.right = exports.reference = exports.read = exports.popper = exports.placements = exports.modifierPhases = exports.main = exports.left = exports.end = exports.clippingParents = exports.bottom = exports.beforeWrite = exports.beforeRead = exports.beforeMain = exports.basePlacements = exports.auto = exports.afterWrite = exports.afterRead = exports.afterMain = void 0;
 var top = 'top';
 exports.top = top;
 var bottom = 'bottom';
@@ -844,8 +844,8 @@ function getVariation(placement) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.mapToStyles = mapToStyles;
 exports.default = void 0;
+exports.mapToStyles = mapToStyles;
 
 var _enums = require("../enums.js");
 
@@ -1928,8 +1928,8 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.distanceAndSkiddingToXY = distanceAndSkiddingToXY;
 exports.default = void 0;
+exports.distanceAndSkiddingToXY = distanceAndSkiddingToXY;
 
 var _getBasePlacement = _interopRequireDefault(require("../utils/getBasePlacement.js"));
 
@@ -2608,14 +2608,14 @@ function mergeByName(modifiers) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.popperGenerator = popperGenerator;
+exports.createPopper = void 0;
 Object.defineProperty(exports, "detectOverflow", {
   enumerable: true,
   get: function () {
     return _detectOverflow.default;
   }
 });
-exports.createPopper = void 0;
+exports.popperGenerator = popperGenerator;
 
 var _getCompositeRect = _interopRequireDefault(require("./dom-utils/getCompositeRect.js"));
 
@@ -2899,19 +2899,19 @@ exports.createPopper = createPopper;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-Object.defineProperty(exports, "popperGenerator", {
-  enumerable: true,
-  get: function () {
-    return _createPopper.popperGenerator;
-  }
-});
+exports.defaultModifiers = exports.createPopper = void 0;
 Object.defineProperty(exports, "detectOverflow", {
   enumerable: true,
   get: function () {
     return _createPopper.detectOverflow;
   }
 });
-exports.defaultModifiers = exports.createPopper = void 0;
+Object.defineProperty(exports, "popperGenerator", {
+  enumerable: true,
+  get: function () {
+    return _createPopper.popperGenerator;
+  }
+});
 
 var _createPopper = require("./createPopper.js");
 
@@ -2945,25 +2945,26 @@ var _exportNames = {
   detectOverflow: true,
   createPopperLite: true
 };
-Object.defineProperty(exports, "popperGenerator", {
-  enumerable: true,
-  get: function () {
-    return _createPopper.popperGenerator;
-  }
-});
-Object.defineProperty(exports, "detectOverflow", {
-  enumerable: true,
-  get: function () {
-    return _createPopper.detectOverflow;
-  }
-});
+exports.createPopper = void 0;
 Object.defineProperty(exports, "createPopperLite", {
   enumerable: true,
   get: function () {
     return _popperLite.createPopper;
   }
 });
-exports.defaultModifiers = exports.createPopper = void 0;
+exports.defaultModifiers = void 0;
+Object.defineProperty(exports, "detectOverflow", {
+  enumerable: true,
+  get: function () {
+    return _createPopper.detectOverflow;
+  }
+});
+Object.defineProperty(exports, "popperGenerator", {
+  enumerable: true,
+  get: function () {
+    return _createPopper.popperGenerator;
+  }
+});
 
 var _createPopper = require("./createPopper.js");
 
@@ -3023,16 +3024,10 @@ var _exportNames = {
   createPopper: true,
   createPopperLite: true
 };
-Object.defineProperty(exports, "popperGenerator", {
+Object.defineProperty(exports, "createPopper", {
   enumerable: true,
   get: function () {
-    return _createPopper.popperGenerator;
-  }
-});
-Object.defineProperty(exports, "detectOverflow", {
-  enumerable: true,
-  get: function () {
-    return _createPopper.detectOverflow;
+    return _popper.createPopper;
   }
 });
 Object.defineProperty(exports, "createPopperBase", {
@@ -3041,16 +3036,22 @@ Object.defineProperty(exports, "createPopperBase", {
     return _createPopper.createPopper;
   }
 });
-Object.defineProperty(exports, "createPopper", {
-  enumerable: true,
-  get: function () {
-    return _popper.createPopper;
-  }
-});
 Object.defineProperty(exports, "createPopperLite", {
   enumerable: true,
   get: function () {
     return _popperLite.createPopper;
+  }
+});
+Object.defineProperty(exports, "detectOverflow", {
+  enumerable: true,
+  get: function () {
+    return _createPopper.detectOverflow;
+  }
+});
+Object.defineProperty(exports, "popperGenerator", {
+  enumerable: true,
+  get: function () {
+    return _createPopper.popperGenerator;
   }
 });
 
@@ -3102,14 +3103,14 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 /*!
-  * Bootstrap v5.1.2 (https://getbootstrap.com/)
+  * Bootstrap v5.1.3 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): util/index.js
+ * Bootstrap (v5.1.3): util/index.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -3419,7 +3420,7 @@ const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed
 };
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): dom/event-handler.js
+ * Bootstrap (v5.1.3): dom/event-handler.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -3708,7 +3709,7 @@ const EventHandler = {
 };
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): dom/data.js
+ * Bootstrap (v5.1.3): dom/data.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -3762,7 +3763,7 @@ const Data = {
 };
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): base-component.js
+ * Bootstrap (v5.1.3): base-component.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -3773,7 +3774,7 @@ const Data = {
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '5.1.2';
+const VERSION = '5.1.3';
 
 class BaseComponent {
   constructor(element) {
@@ -3828,7 +3829,7 @@ class BaseComponent {
 }
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): util/component-functions.js
+ * Bootstrap (v5.1.3): util/component-functions.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -3854,7 +3855,7 @@ const enableDismissTrigger = (component, method = 'hide') => {
 };
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): alert.js
+ * Bootstrap (v5.1.3): alert.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -3945,7 +3946,7 @@ enableDismissTrigger(Alert, 'close');
 defineJQueryPlugin(Alert);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): button.js
+ * Bootstrap (v5.1.3): button.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -4017,7 +4018,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$5, event 
 defineJQueryPlugin(Button);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): dom/manipulator.js
+ * Bootstrap (v5.1.3): dom/manipulator.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -4091,7 +4092,7 @@ const Manipulator = {
 };
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): dom/selector-engine.js
+ * Bootstrap (v5.1.3): dom/selector-engine.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -4161,7 +4162,7 @@ const SelectorEngine = {
 };
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): carousel.js
+ * Bootstrap (v5.1.3): carousel.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -4711,7 +4712,7 @@ EventHandler.on(window, EVENT_LOAD_DATA_API$2, () => {
 defineJQueryPlugin(Carousel);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): collapse.js
+ * Bootstrap (v5.1.3): collapse.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -5031,7 +5032,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$4, functi
 defineJQueryPlugin(Collapse);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): dropdown.js
+ * Bootstrap (v5.1.3): dropdown.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -5494,7 +5495,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API$3, SELECTOR_DATA_TOGGLE$3, functi
 defineJQueryPlugin(Dropdown);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): util/scrollBar.js
+ * Bootstrap (v5.1.3): util/scrollBar.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -5598,7 +5599,7 @@ class ScrollBarHelper {
 }
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): util/backdrop.js
+ * Bootstrap (v5.1.3): util/backdrop.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -5723,7 +5724,7 @@ class Backdrop {
 }
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): util/focustrap.js
+ * Bootstrap (v5.1.3): util/focustrap.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -5827,7 +5828,7 @@ class FocusTrap {
 }
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): modal.js
+ * Bootstrap (v5.1.3): modal.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -6258,7 +6259,7 @@ enableDismissTrigger(Modal);
 defineJQueryPlugin(Modal);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): offcanvas.js
+ * Bootstrap (v5.1.3): offcanvas.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -6515,7 +6516,7 @@ enableDismissTrigger(Offcanvas);
 defineJQueryPlugin(Offcanvas);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): util/sanitizer.js
+ * Bootstrap (v5.1.3): util/sanitizer.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -6628,7 +6629,7 @@ function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
 }
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): tooltip.js
+ * Bootstrap (v5.1.3): tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -7340,7 +7341,7 @@ exports.Tooltip = Tooltip;
 defineJQueryPlugin(Tooltip);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): popover.js
+ * Bootstrap (v5.1.3): popover.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -7451,7 +7452,7 @@ exports.Popover = Popover;
 defineJQueryPlugin(Popover);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): scrollspy.js
+ * Bootstrap (v5.1.3): scrollspy.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -7687,7 +7688,7 @@ EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
 defineJQueryPlugin(ScrollSpy);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): tab.js
+ * Bootstrap (v5.1.3): tab.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -7886,7 +7887,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
 defineJQueryPlugin(Tab);
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.1.2): toast.js
+ * Bootstrap (v5.1.3): toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -8151,7 +8152,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49213" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61296" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
