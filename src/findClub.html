@@ -60,7 +60,7 @@
     <!-- create table with checkboxes -->
     <h2 style="color:green">Club Search Criteria</h2>
       <div class="container">
-         <span style="color:red">Filter</span>
+         <span style="color:rgba(223, 207, 207, 0.719)">Filter</span>
          <div class="row">
             <div class="col-md-3">
                
@@ -81,7 +81,7 @@
                         <td><input type="checkbox" name="Category">Sports</td>
                      </tr>
                      <tr>
-                        <td><input type="checkbox" name="Category">Other</td>
+                        <td><input type="checkbox" name="Category">Greek</td>
                      </tr>
                   </tbody>
                </table>
@@ -89,6 +89,33 @@
                <button type="button" value="deselectAll" class="main" onclick="uncheckAll()">Clear</button>
             </div>
          </div>
+         <div class="container">
+            <span style="color:rgba(223, 207, 207, 0.719)">Filter</span>
+            <div class="row">
+               <div class="col-md-3">
+                  
+                  <table class="table table-bordered table-condensed table-hover table-striped text-center">
+                     <thead>
+                        <tr>
+                           <th scope="col">Size</th>
+                        </tr>
+                     </thead>
+                     <tbody class="text-left">
+                        <tr>
+                           <td><input type="checkbox" name="Size">Large (50+)</td>
+                        </tr>
+                        <tr>
+                           <td><input type="checkbox" name="Size">Medium (20-50)</td>
+                        </tr>
+                        <tr>
+                           <td><input type="checkbox" name="Size">Small (1-20)</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <button type="button" value="selectAll" class="main" onclick="checkAll()">Select All</button>
+                  <button type="button" value="deselectAll" class="main" onclick="uncheckAll()">Clear</button>
+               </div>
+            </div>
       </div>
       <script type="text/javascript">
          // Select all check boxes
@@ -108,7 +135,7 @@
                }
            }
       </script>
-    
+
     <!-- Create table corresponding to checkboxes -->
 
       <div class="container">
