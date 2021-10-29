@@ -15,3 +15,12 @@
     margin-top: 50px; /* changed */
     overflow: visible;
   }
+.imageContainer{
+    position: absolute;
+    width: 400px; /*the image width*/
+    height: 400px; /*the image height*/
+    left: 50%;
+    top: 50%;
+    margin-left: -200px; /*half the image width*/
+    margin-top: -200px; /*half the image height*/
+  }
