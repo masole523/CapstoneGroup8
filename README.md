@@ -1,3 +1,3 @@
 # CapstoneGroup8
 
-To run program in terminal type "npm run dev"
+To run program while in the directory type in the terminal "npm run dev"
