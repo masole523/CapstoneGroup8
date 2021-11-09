@@ -1,0 +1,68 @@
+create table Students (
+name VARCHAR(25),
+StudentID int(9),
+PRIMARY KEY(StudentID)
+);
+create table Clubs (
+name VARCHAR(25),
+ClubID int(9),
+Size int(5),
+Activity int(5),
+Communication varchar(25),
+PRIMARY KEY(ClubID)
+);
+create table Membership (
+StudentID int(9),
+ClubID int(9),
+Role varchar(25),
+FOREIGN KEY(StudentID) references Students(StudentID),
+FOREIGN KEY(ClubID) references Clubs(ClubID)
+);
+create table Calendar (
+ClubName VARCHAR(25),
+ClubID int(9),
+StudentID int(9),
+MeetingDateTime datetime,
+Type varchar(25),
+FOREIGN KEY(ClubID) references Clubs(ClubID),
+FOREIGN KEY(StudentID) references Students(StudentID)
+);
+
+INSERT INTO Students
+Values('Patrick Dickey', 800100200),
+('Tom Yoxsimer', 800100201),
+('Cole Bauguess', 800100202),
+('Kevin Mcdonald', 800100203),
+('William Landon', 800100204),
+('Duane Shelton', 800100205),
+('Christian Mccaffrey', 800100206),
+('Luke Keuchly', 800100207),
+('Steve Smith', 800100208),
+('Jake Delhomme', 800100209)
+;
+INSERT INTO Clubs
+Values('Chess Club', 01, 50, 50, 'https://discord.gg/2DmmD9qm'),
+('Ultimate Frisbee', 02, 60, 50, 'GroupMe invite'),
+('Archery Club', 03, 10, 50, 'https://discord.gg/2DmmD9qm'),
+('Alpha Sigma Phi', 04, 120, 50, 'https://discord.gg/2DmmD9qm'),
+('Rho Tau Sigma', 05, 70, 50, 'https://discord.gg/2DmmD9qm')
+;
+INSERT INTO Membership
+Values(800100200, 01, 'President'),
+(800100201, 02, 'Captain'),
+(800100202, 03, 'Vice President'),
+(800100203, 04, 'Officer'),
+(800100204, 05, 'Treasurer'),
+(800100205, 04, 'President'),
+(800100206, 04, 'Member'),
+(800100207, 05, 'President'),
+(800100208, 03, 'Arrow Retriever'),
+(800100209, 01, 'Member')
+;
+INSERT INTO Calendar
+Values('Chess Club', 01, 800100200,'20211119 02:00:00PM','Recreation'),
+('Ultimate Frisbee', 02, 800100200,'20211119 03:00:00PM','Sports'),
+('Archery Club', 03, 800100200,'20211119 04:00:00PM','Recreation'),
+('Alpha Sigma Phi', 04, 800100200,'20211119 05:00:00PM','Greek'),
+('Rho Tau Sigma', 05, 800100200,'20211119 06:00:00PM','Professional')
+;
