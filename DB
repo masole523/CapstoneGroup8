@@ -1,8 +1,10 @@
+// Students table
 create table Students (
 name VARCHAR(25),
 StudentID int(9),
 PRIMARY KEY(StudentID)
 );
+// Clubs Table
 create table Clubs (
 name VARCHAR(25),
 ClubID int(9),
@@ -11,6 +13,7 @@ Activity int(5),
 Communication varchar(25),
 PRIMARY KEY(ClubID)
 );
+// Membership Table
 create table Membership (
 StudentID int(9),
 ClubID int(9),
@@ -18,6 +21,7 @@ Role varchar(25),
 FOREIGN KEY(StudentID) references Students(StudentID),
 FOREIGN KEY(ClubID) references Clubs(ClubID)
 );
+// Calendar Table
 create table Calendar (
 ClubName VARCHAR(25),
 ClubID int(9),
@@ -27,6 +31,8 @@ Type varchar(25),
 FOREIGN KEY(ClubID) references Clubs(ClubID),
 FOREIGN KEY(StudentID) references Students(StudentID)
 );
+
+// Populate Tables
 
 INSERT INTO Students
 Values('Patrick Dickey', 800100200),
@@ -59,6 +65,7 @@ Values(800100200, 01, 'President'),
 (800100208, 03, 'Arrow Retriever'),
 (800100209, 01, 'Member')
 ;
+// All events added here are for one individual on one particular day for display test purposes
 INSERT INTO Calendar
 Values('Chess Club', 01, 800100200,'20211119 02:00:00PM','Recreation'),
 ('Ultimate Frisbee', 02, 800100200,'20211119 03:00:00PM','Sports'),
